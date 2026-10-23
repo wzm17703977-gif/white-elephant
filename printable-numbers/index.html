@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Elephant Numbers Printable – Free Number Cards 1 to 100 | Gift Swap Kit</title>
+<meta name="description" content="Make printable white elephant numbers in seconds. Pick how many players and a card style, then print or save as PDF. Free number cards from 1 to 100, no download or sign-up.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/printable-numbers/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="Printable White Elephant Numbers">
+<meta property="og:description" content="Free number cards for your gift exchange. Choose a count and style, then print.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/printable-numbers/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Printable White Elephant Numbers","url":"https://wzm17703977-gif.github.io/white-elephant/printable-numbers/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../">Number generator</a>
+      <a href="../dice/">Dice game</a>
+      <a href="./" aria-current="page">Printable numbers</a>
+      <a href="../rules/">Rules</a>
+      <a href="../printables/">Printables</a>
+      <a href="../secret-santa/">Secret Santa</a>
+      <a href="../secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Printable White Elephant Numbers</h1>
+    <p class="lead">Choose how many players you have and a card style, then print. Cut along the dashed lines, fold, and draw from a hat.</p>
+  </section>
+
+  <section class="card no-print">
+    <div class="row">
+      <div class="field">
+        <label for="n">Number of cards</label>
+        <input id="n" type="number" inputmode="numeric" min="1" max="100" value="20">
+      </div>
+      <div class="field">
+        <label for="style">Card style</label>
+        <select id="style">
+          <option value="festive">Festive</option>
+          <option value="plain">Plain (saves ink)</option>
+          <option value="bold">Bold green</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="caption">Small caption under each number</label>
+      <input id="caption" type="text" maxlength="30" value="White Elephant">
+    </div>
+    <div class="actions">
+      <button class="btn big" id="print" type="button">Print cards</button>
+      <span class="hint">Tip: in the print dialog choose “Save as PDF” to keep a copy.</span>
+    </div>
+  </section>
+
+  <section class="card print-me" aria-label="Number cards preview">
+    <div class="cards-sheet" id="sheet"></div>
+  </section>
+
+  <section class="prose no-print">
+    <h2>How to use the number cards</h2>
+    <ol>
+      <li>Print one card per player. Bold green looks great but uses more ink — pick Plain for a home printer.</li>
+      <li>Cut along the dashed lines and fold each card in half so the number is hidden.</li>
+      <li>Drop them in a hat or bowl. Everyone draws one; number 1 goes first.</li>
+    </ol>
+    <p>No printer? Use the <a href="../">white elephant number generator</a> and pass a phone around instead. New to the game? Read the <a href="../rules/">white elephant rules</a>.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../">Number generator</a> · <a href="../dice/">Dice game</a> · <a href="./">Printable numbers</a> · <a href="../rules/">Rules</a> · <a href="../printables/">Printables</a> · <a href="../secret-santa/">Secret Santa</a> · <a href="../secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const fromUrl = parseInt(new URLSearchParams(location.search).get('n'), 10);
+  if (fromUrl >= 1 && fromUrl <= 100) $('n').value = fromUrl;
+  else $('n').value = GS.store.get('cards-n', 20);
+  $('style').value = GS.store.get('cards-style', 'festive');
+  $('caption').value = GS.store.get('cards-caption', 'White Elephant');
+
+  function render() {
+    let n = parseInt($('n').value, 10);
+    if (!(n >= 1)) n = 1;
+    if (n > 100) { n = 100; $('n').value = 100; }
+    const style = $('style').value;
+    const cap = GS.escape($('caption').value.trim());
+    let html = '';
+    for (let i = 1; i <= n; i++) {
+      html += `<div class="num-card style-${style}"><span class="n">${i}</span>${cap ? `<span class="t">${cap}</span>` : ''}</div>`;
+    }
+    $('sheet').innerHTML = html;
+    GS.store.set('cards-n', n);
+    GS.store.set('cards-style', style);
+    GS.store.set('cards-caption', $('caption').value);
+  }
+  ['n', 'style', 'caption'].forEach(id => $(id).addEventListener('input', render));
+  $('print').addEventListener('click', () => { render(); window.print(); });
+  render();
+})();
+</script>
+</body>
+</html>

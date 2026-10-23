@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Secret Santa Match | Gift Swap Kit</title>
+<meta name="description" content="Open your private Secret Santa match.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><img src="../../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card reveal-box" id="box">
+    <button class="gift-box" id="giftbox" type="button" aria-label="Open my gift">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <g class="box-body"><rect x="18" y="54" width="84" height="56" rx="6" fill="#b8322b"/><rect x="54" y="54" width="12" height="56" fill="#e3a92b"/></g>
+        <g class="box-lid"><rect x="12" y="38" width="96" height="20" rx="5" fill="#d24a3f"/><rect x="54" y="38" width="12" height="20" fill="#e3a92b"/>
+          <path d="M60 38 C48 16 28 22 38 34 C42 38 52 38 60 38 Z" fill="#e3a92b"/><path d="M60 38 C72 16 92 22 82 34 C78 38 68 38 60 38 Z" fill="#e3a92b"/></g>
+      </svg>
+    </button>
+    <h1 id="hello">Your Secret Santa match</h1>
+    <p id="event" class="hint"></p>
+    <div id="hidden-part">
+      <p>Make sure nobody is looking at your screen.</p>
+      <button class="btn big" id="show" type="button">Open my gift</button>
+    </div>
+    <div id="shown-part" hidden>
+      <p>You are the Secret Santa for</p>
+      <div class="to" id="to"></div>
+      <div id="extra" style="margin-top:16px"></div>
+      <p class="hint" style="margin-top:18px">Keep it secret! Bookmark this page or keep the message so you can check again later.</p>
+    </div>
+  </section>
+
+  <section class="prose" style="text-align:center">
+    <p>Organizing your own gift exchange? Try the free <a href="../">Secret Santa generator</a> (no email needed) or the <a href="../../">white elephant number generator</a>.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+  </div>
+</footer>
+<script src="../../assets/app.js"></script>
+<script src="../../assets/santa.js"></script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  let data = null;
+  try { data = window.GSDecode(location.hash.slice(1)); } catch (e) { data = null; }
+  if (!data || !data.g || !data.r) {
+    $('hello').textContent = 'This link looks incomplete';
+    $('hidden-part').innerHTML = '<p>Ask the organizer to send the full link again — it may have been cut off when it was copied.</p><p><a class="btn" href="../">Make your own Secret Santa draw</a></p>';
+    return;
+  }
+  $('hello').textContent = 'Hi ' + data.g + '!';
+  if (data.e) $('event').textContent = data.e;
+  let opened = false;
+  function reveal() {
+    if (opened) return;
+    opened = true;
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    $('giftbox').classList.add('open');
+    setTimeout(() => { show(); if (!reduce) confetti(); }, reduce ? 0 : 650);
+  }
+  function confetti() {
+    const colors = ['#b8322b', '#e3a92b', '#1f4d36', '#2c6a4b', '#ffffff'];
+    const box = $('box');
+    for (let i = 0; i < 70; i++) {
+      const c = document.createElement('i');
+      c.className = 'confetti';
+      c.style.left = (40 + Math.random() * 20) + '%';
+      c.style.background = colors[i % colors.length];
+      c.style.setProperty('--dx', (Math.random() * 360 - 180).toFixed(0) + 'px');
+      c.style.setProperty('--dy', (Math.random() * -260 - 80).toFixed(0) + 'px');
+      c.style.setProperty('--r', (Math.random() * 720 - 360).toFixed(0) + 'deg');
+      c.style.animationDelay = (Math.random() * 0.15).toFixed(2) + 's';
+      box.appendChild(c);
+      setTimeout(() => c.remove(), 1800);
+    }
+  }
+  $('giftbox').addEventListener('click', reveal);
+  $('show').addEventListener('click', reveal);
+  function show() {
+    $('to').textContent = data.r;
+    const bits = [];
+    if (data.b) bits.push('<strong>Budget:</strong> ' + GS.escape(data.b));
+    if (data.d) {
+      const d = new Date(data.d + 'T12:00:00');
+      bits.push('<strong>Exchange date:</strong> ' + GS.escape(isNaN(d) ? data.d : d.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })));
+    }
+    if (data.m) bits.push('<strong>Note:</strong> ' + GS.escape(data.m));
+    $('extra').innerHTML = bits.map(b => '<p style="margin:4px 0">' + b + '</p>').join('');
+    $('hidden-part').hidden = true;
+    $('shown-part').hidden = false;
+    if (navigator.vibrate) navigator.vibrate(40);
+  }
+})();
+</script>
+</body>
+</html>

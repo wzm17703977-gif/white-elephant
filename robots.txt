@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wzm17703977-gif.github.io/white-elephant/sitemap.xml

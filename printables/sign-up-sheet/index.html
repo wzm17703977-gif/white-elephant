@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Elephant Sign Up Sheet – Free Printable for Office &amp; Family Parties | Gift Swap Kit</title>
+<meta name="description" content="Free printable white elephant sign-up sheet. Add your event name, date, place and budget, choose how many lines you need, and print it for the break room or the fridge.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/printables/sign-up-sheet/">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="White Elephant Sign Up Sheet (Printable)">
+<meta property="og:description" content="Print a sign-up sheet for your white elephant gift exchange.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/printables/sign-up-sheet/">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>@page { size: letter; margin: 0.5in; }</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><img src="../../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../../">Number generator</a>
+      <a href="../../dice/">Dice game</a>
+      <a href="../../printable-numbers/">Printable numbers</a>
+      <a href="../../rules/">Rules</a>
+      <a href="../" aria-current="page">Printables</a>
+      <a href="../../secret-santa/">Secret Santa</a>
+      <a href="../../secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>White Elephant Sign Up Sheet</h1>
+    <p class="lead">Fill in the party details, pick how many lines you need, and print. Pin it in the break room or on the fridge so people can add their names.</p>
+  </section>
+
+  <section class="card no-print">
+    <div class="row">
+      <div class="field">
+        <label for="event">Event name</label>
+        <input id="event" type="text" maxlength="60" placeholder="White Elephant Gift Exchange">
+      </div>
+      <div class="field">
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="place">Time and place</label>
+        <input id="place" type="text" maxlength="60" placeholder="5 pm, kitchen">
+      </div>
+      <div class="field">
+        <label for="budget">Gift budget</label>
+        <input id="budget" type="text" maxlength="20" placeholder="$25">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="deadline">Sign up by</label>
+        <input id="deadline" type="text" maxlength="30" placeholder="Friday, Dec 12">
+      </div>
+      <div class="field">
+        <label for="rows">Number of lines</label>
+        <input id="rows" type="number" inputmode="numeric" min="5" max="60" value="20">
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn big" id="print" type="button">Print sign-up sheet</button>
+    </div>
+  </section>
+
+  <section class="card print-me sheet-wrap" aria-label="Printable sign-up sheet">
+    <article class="sheet">
+      <div class="s-head"><div><h2 data-from="event">White Elephant Gift Exchange</h2><p class="s-sub">Bring one wrapped gift, no name on it. Add your name below to join.</p></div><span class="s-tag">Sign up</span></div>
+      <div class="s-meta">
+        <div><b>Date</b><span data-from="date"></span></div>
+        <div><b>Time &amp; place</b><span data-from="place"></span></div>
+        <div><b>Budget</b><span data-from="budget"></span></div>
+      </div>
+      <table>
+        <thead><tr><th>#</th><th>Name</th><th>Bringing a gift</th><th>Snack or drink (optional)</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <p class="s-note"><strong>Please sign up by:</strong> <span data-from="deadline"></span></p>
+      <div class="s-foot"><span>Free printable from Gift Swap Kit</span><span>wzm17703977-gif.github.io/white-elephant</span></div>
+    </article>
+  </section>
+
+  <section class="prose no-print">
+    <h2>Tips for the host</h2>
+    <ul>
+      <li>Count the names the day before so you know how many <a href="../../printable-numbers/">number cards</a> to print, or draw the order with the <a href="../../">number generator</a>.</li>
+      <li>Keep one or two spare gifts in case someone forgets.</li>
+      <li>On the day, track who opened what with the <a href="../gift-tracker/">gift tracker</a>.</li>
+    </ul>
+    <p>More free printables: <a href="../dice-game/">dice game sheet</a> and the <a href="../../rules/">one-page rules</a>.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../../">Number generator</a> · <a href="../../dice/">Dice game</a> · <a href="../../printable-numbers/">Printable numbers</a> · <a href="../../rules/">Rules</a> · <a href="../">Printables</a> · <a href="../../secret-santa/">Secret Santa</a> · <a href="../../secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../../assets/app.js"></script>
+<script src="../../assets/sheets.js"></script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  function render() {
+    let n = parseInt($('rows').value, 10);
+    if (!(n >= 5)) n = 5;
+    if (n > 60) { n = 60; $('rows').value = 60; }
+    let html = '';
+    for (let i = 1; i <= n; i++) html += '<tr><td class="n">' + i + '</td><td></td><td class="boxes"><span></span></td><td></td></tr>';
+    $('tbody').innerHTML = html;
+    const h = document.querySelector('[data-from="event"]');
+    if (!$('event').value.trim()) h.textContent = 'White Elephant Gift Exchange';
+  }
+  GS.bindFields('sheet-signup', ['event', 'date', 'place', 'budget', 'deadline', 'rows']);
+  ['rows', 'event'].forEach(id => $(id).addEventListener('input', render));
+  $('print').addEventListener('click', () => { render(); window.print(); });
+  render();
+})();
+</script>
+</body>
+</html>

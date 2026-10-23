@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Santa Questionnaire – Free Printable &amp; Fillable, No Sign-Up | Gift Swap Kit</title>
+<meta name="description" content="Free Secret Santa questionnaire maker. Pick questions for coworkers, family or kids, then print blank sheets, copy the list into Google Forms or a group chat, or send a fill-in link. Collect everyone's answers on one printable page. No sign-up.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/secret-santa-questionnaire/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="Secret Santa Questionnaire — Printable and Fillable">
+<meta property="og:description" content="Pick questions, print blank sheets or send a fill-in link, then print everyone's answers on one page. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/secret-santa-questionnaire/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Secret Santa Questionnaire Maker","url":"https://wzm17703977-gif.github.io/white-elephant/secret-santa-questionnaire/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What should a Secret Santa questionnaire ask?","acceptedAnswer":{"@type":"Answer","text":"Keep it short: favorite colors, hobbies, snacks, drinks, favorite stores, something small they would love, allergies, and anything they do not want. For family exchanges add clothing and shoe sizes; for kids ask about favorite characters and toys."}},
+{"@type":"Question","name":"How do I collect Secret Santa answers without Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Create a fill-in link here and send it to your group. Each person fills it out and sends back their answer link. Paste all the answer links into the collect box and print everyone's answers on one page. No accounts and no spreadsheet."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../">Number generator</a>
+      <a href="../dice/">Dice game</a>
+      <a href="../printable-numbers/">Printable numbers</a>
+      <a href="../rules/">Rules</a>
+      <a href="../printables/">Printables</a>
+      <a href="../secret-santa/">Secret Santa</a>
+      <a href="./" aria-current="page">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Secret Santa Questionnaire — Printable, Fillable, Free</h1>
+    <p class="lead">Pick the questions that suit your group, then print blank sheets, copy the list into a group chat or Google Forms, or send one fill-in link. When the answers come back, print everyone’s answers on one page. No sign-up, nothing uploaded.</p>
+  </section>
+
+  <!-- Organizer: shown when the page has no #q= or #a= link -->
+  <div id="organizer" hidden>
+    <section class="card">
+      <h2>1. Pick your questions <span class="hint" id="count"></span></h2>
+      <div class="tabs" role="tablist" aria-label="Question sets">
+        <button type="button" role="tab" data-preset="work">Coworkers</button>
+        <button type="button" role="tab" data-preset="family">Family &amp; friends</button>
+        <button type="button" role="tab" data-preset="kids">Kids</button>
+      </div>
+      <div id="bank" class="bank"></div>
+      <div class="field">
+        <label for="custom">Your own questions <span class="hint">— one per line, up to 10</span></label>
+        <textarea id="custom" placeholder="Favorite holiday tradition?&#10;Hot cocoa or eggnog?"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Event details <span class="hint">(optional, printed at the top)</span></h2>
+      <div class="row">
+        <div class="field"><label for="ev">Event name</label><input id="ev" type="text" maxlength="60" placeholder="Office holiday party"></div>
+        <div class="field"><label for="bud">Budget</label><input id="bud" type="text" maxlength="20" placeholder="$25"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="due">Answers due by</label><input id="due" type="text" maxlength="30" placeholder="Friday, Dec 4"></div>
+        <div class="field"><label for="per-page">Print layout</label>
+          <select id="per-page"><option value="1">1 questionnaire per page</option><option value="2">2 per page (cut in half)</option></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Share it</h2>
+      <div class="actions">
+        <button class="btn big" id="do-print" type="button">Print blank questionnaire</button>
+        <button class="btn secondary" id="do-copy" type="button">Copy question list</button>
+        <button class="btn secondary" id="do-link" type="button">Create fill-in link</button>
+      </div>
+      <p class="hint">The copied list is plain text — paste it into Slack, Teams, an email, a group chat, or a Google Form.</p>
+      <div id="link-box" hidden>
+        <div class="field"><label for="fill-link">Send this link to everyone</label><input id="fill-link" type="text" readonly></div>
+        <div class="actions">
+          <button class="btn" id="copy-link" type="button">Copy link</button>
+          <button class="btn ghost" id="share-link" type="button">Share…</button>
+        </div>
+        <p class="notice">Each person fills it out on their phone and gets an <em>answer link</em> to send back to you. Paste those links in step 4.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Collect everyone’s answers</h2>
+      <div class="field">
+        <label for="answers-in">Paste answer links <span class="hint">— one per line, in any order</span></label>
+        <textarea id="answers-in" rows="4" placeholder="https://…/secret-santa-questionnaire/#a=…"></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn" id="compile" type="button">Show all answers</button>
+        <button class="btn ghost" id="print-book" type="button" hidden>Print all answers</button>
+      </div>
+      <p class="hint" id="compile-msg" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <!-- Participant: opened from a #q= link -->
+  <section class="card" id="fill" hidden>
+    <h2 id="fill-title">Secret Santa questionnaire</h2>
+    <p class="hint" id="fill-meta"></p>
+    <div id="fill-form"></div>
+    <div class="actions"><button class="btn big" id="finish" type="button">Done — get my answer link</button></div>
+    <p class="hint">Your answers stay on this device until you send them. Nothing is uploaded.</p>
+  </section>
+  <section class="card" id="done" hidden>
+    <h2>Send this link back to your organizer</h2>
+    <div class="field"><label for="answer-link">Your answer link</label><input id="answer-link" type="text" readonly></div>
+    <div class="actions">
+      <button class="btn" id="copy-answer" type="button">Copy answer link</button>
+      <button class="btn ghost" id="share-answer" type="button">Share…</button>
+      <button class="btn ghost" id="copy-text" type="button">Copy as text</button>
+      <button class="btn ghost" id="print-answer" type="button">Print</button>
+    </div>
+    <div id="answer-preview"></div>
+  </section>
+
+  <!-- Anyone: opened from a #a= link -->
+  <section class="card" id="view" hidden>
+    <h2>Secret Santa answers</h2>
+    <div id="view-card"></div>
+    <div class="actions">
+      <button class="btn" id="view-print" type="button">Print</button>
+      <a class="btn ghost" href="./">Make your own questionnaire</a>
+    </div>
+  </section>
+
+  <!-- Print target, filled by the script -->
+  <section class="card" id="sheet" hidden></section>
+
+  <section class="prose no-print">
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Pick a question set</strong> — Coworkers keeps it work-friendly, Family adds clothing and shoe sizes, Kids asks about characters and toys. Tick or untick any question and add your own.</li>
+      <li><strong>Choose how to share it.</strong> Print blank sheets to hand out at the office, copy the plain-text list into a chat or Google Form, or create one fill-in link for everyone.</li>
+      <li><strong>Collect the answers.</strong> People who used the link send you back an answer link. Paste them all into step 4 and print one page with everyone’s answers — handy when you hand out the Secret Santa assignments.</li>
+    </ol>
+
+    <h2>Good Secret Santa questions to ask</h2>
+    <p>The best questionnaires are short — ten to twelve questions is plenty. Ask about <strong>favorite colors, hobbies, snacks and drinks</strong>, where they like to shop, <strong>something small they’d love</strong>, and always include <strong>allergies</strong> and a <strong>“please don’t get me…”</strong> line. For family exchanges, clothing and shoe sizes save a lot of returns. For coworkers, skip sizes and add “something that would make your desk better.”</p>
+
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Is it really free? Do people need an account?</summary><p>Yes, it’s free, and nobody signs up — not you, not your group. Everything runs in your browser.</p></details>
+      <details><summary>Where are the answers stored?</summary><p>Nowhere on a server. The questions travel inside the fill-in link, and each person’s answers travel inside their answer link. The links are encoded, not encrypted, so anyone who has a link can read it — only share answer links with your organizer.</p></details>
+      <details><summary>Can I use it with Google Forms?</summary><p>Yes. Tap <em>Copy question list</em> and paste it into a new Google Form, one question per line. Or skip the form entirely and use the fill-in link.</p></details>
+      <details><summary>Can I print a PDF?</summary><p>Tap <em>Print blank questionnaire</em> and choose “Save as PDF” in the print dialog. Use “2 per page” to save paper.</p></details>
+      <details><summary>Still need to draw names?</summary><p>Use the <a href="../secret-santa/">Secret Santa generator</a> — no email needed, with exclusions for couples. Playing white elephant instead? Read the <a href="../rules/">rules</a> or try the <a href="../dice/">dice game</a>.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../">Number generator</a> · <a href="../dice/">Dice game</a> · <a href="../printable-numbers/">Printable numbers</a> · <a href="../rules/">Rules</a> · <a href="../printables/">Printables</a> · <a href="../secret-santa/">Secret Santa</a> · <a href="./">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/questionnaire.js"></script>
+</body>
+</html>

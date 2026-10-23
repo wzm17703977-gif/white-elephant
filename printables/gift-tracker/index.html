@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Elephant Gift Tracker – Free Printable Steal Tracker Sheet | Gift Swap Kit</title>
+<meta name="description" content="Free printable white elephant gift tracker. Write down who opened which gift, tick a box every time it is stolen, and freeze it after three steals. Pick 10 to 40 rows and print.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/printables/gift-tracker/">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="White Elephant Gift Tracker (Printable)">
+<meta property="og:description" content="Track every gift and every steal at your white elephant party.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/printables/gift-tracker/">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>@page { size: letter; margin: 0.5in; }</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do you keep track of steals in white elephant?","acceptedAnswer":{"@type":"Answer","text":"Write each gift on a tracker sheet when it is opened and tick a box every time it is stolen. Most groups freeze a gift after its third steal, so three boxes per gift is enough."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><img src="../../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../../">Number generator</a>
+      <a href="../../dice/">Dice game</a>
+      <a href="../../printable-numbers/">Printable numbers</a>
+      <a href="../../rules/">Rules</a>
+      <a href="../" aria-current="page">Printables</a>
+      <a href="../../secret-santa/">Secret Santa</a>
+      <a href="../../secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>White Elephant Gift Tracker</h1>
+    <p class="lead">One sheet for the host: who opened what, how many times each gift was stolen, and who took it home. Tick a box per steal; three ticks and the gift is frozen.</p>
+  </section>
+
+  <section class="card no-print">
+    <div class="row">
+      <div class="field">
+        <label for="event">Event name</label>
+        <input id="event" type="text" maxlength="60" placeholder="Office holiday party">
+      </div>
+      <div class="field">
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="budget">Budget</label>
+        <input id="budget" type="text" maxlength="20" placeholder="$25">
+      </div>
+      <div class="field">
+        <label for="limit">Steal limit per gift</label>
+        <select id="limit">
+          <option value="2">2 steals</option>
+          <option value="3" selected>3 steals</option>
+          <option value="4">4 steals</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="rows">Number of players</label>
+      <input id="rows" type="number" inputmode="numeric" min="4" max="60" value="20">
+    </div>
+    <div class="actions">
+      <button class="btn big" id="print" type="button">Print tracker</button>
+      <span class="hint">About 20 rows fit on one page; more rows continue on a second page.</span>
+    </div>
+  </section>
+
+  <section class="card print-me sheet-wrap" aria-label="Printable gift tracker">
+    <article class="sheet">
+      <div class="s-head"><div><h2>Gift Tracker</h2><p class="s-sub">Tick one box each time a gift is stolen. When every box is ticked, the gift is frozen.</p></div><span class="s-tag">White elephant</span></div>
+      <div class="s-meta">
+        <div><b>Event</b><span data-from="event"></span></div>
+        <div><b>Date</b><span data-from="date"></span></div>
+        <div><b>Budget</b><span data-from="budget"></span></div>
+      </div>
+      <table>
+        <thead><tr><th>#</th><th>Player</th><th>Gift (what it is)</th><th>Steals</th><th>Went home with</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <p class="s-note"><strong>House rules:</strong> no instant steal-back · a gift is frozen after <span id="limit-txt">3</span> steals · player 1 may swap once at the end.</p>
+      <div class="s-foot"><span>Free printable from Gift Swap Kit</span><span>wzm17703977-gif.github.io/white-elephant</span></div>
+    </article>
+  </section>
+
+  <section class="prose no-print">
+    <h2>How to use the gift tracker</h2>
+    <ol>
+      <li>Fill in the player order before you start. Draw it with the <a href="../../">number generator</a> or <a href="../../printable-numbers/">printable number cards</a>.</li>
+      <li>When a gift is opened, write what it is on that player’s row.</li>
+      <li>Each steal gets a tick in that gift’s row. When all boxes are ticked, the gift stays where it is.</li>
+      <li>At the end, write down who took each gift home. Handy for thank-you notes.</li>
+    </ol>
+    <p>More free printables: <a href="../dice-game/">dice game sheet</a>, <a href="../sign-up-sheet/">sign-up sheet</a> and the <a href="../../rules/">one-page rules</a>.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../../">Number generator</a> · <a href="../../dice/">Dice game</a> · <a href="../../printable-numbers/">Printable numbers</a> · <a href="../../rules/">Rules</a> · <a href="../">Printables</a> · <a href="../../secret-santa/">Secret Santa</a> · <a href="../../secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../../assets/app.js"></script>
+<script src="../../assets/sheets.js"></script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  function render() {
+    let n = parseInt($('rows').value, 10);
+    if (!(n >= 4)) n = 4;
+    if (n > 60) { n = 60; $('rows').value = 60; }
+    const limit = parseInt($('limit').value, 10) || 3;
+    const boxes = '<span></span>'.repeat(limit);
+    let html = '';
+    for (let i = 1; i <= n; i++) html += '<tr><td class="n">' + i + '</td><td></td><td></td><td class="boxes">' + boxes + '</td><td></td></tr>';
+    $('tbody').innerHTML = html;
+    $('limit-txt').textContent = limit;
+  }
+  GS.bindFields('sheet-tracker', ['event', 'date', 'budget', 'limit', 'rows']);
+  ['rows', 'limit'].forEach(id => $(id).addEventListener('input', render));
+  $('print').addEventListener('click', () => { render(); window.print(); });
+  render();
+})();
+</script>
+</body>
+</html>

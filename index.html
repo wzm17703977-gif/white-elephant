@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Elephant Number Generator – Random Gift Exchange Order | Gift Swap Kit</title>
+<meta name="description" content="Free white elephant number generator. Enter how many players (or their names) and get a random turn order in one tap. Big-screen reveal mode, no sign-up, works on any phone.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="White Elephant Number Generator">
+<meta property="og:description" content="Random turn order for your white elephant or Yankee swap in one tap. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"White Elephant Number Generator","url":"https://wzm17703977-gif.github.io/white-elephant/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Generate a random turn order for a white elephant gift exchange."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do you pick numbers for white elephant?","acceptedAnswer":{"@type":"Answer","text":"Every player draws a number at random. Number 1 goes first, number 2 second, and so on. This generator does the draw for you: enter the number of players or their names and tap Generate order."}},
+{"@type":"Question","name":"Is it an advantage to be number 1 in white elephant?","acceptedAnswer":{"@type":"Answer","text":"Usually it is a disadvantage, because number 1 opens a gift that anyone can steal. Many groups fix this by letting number 1 take one final turn at the end to swap with anyone."}},
+{"@type":"Question","name":"Do I need to sign up or give an email?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser and nothing is uploaded or stored on a server."}}
+]}
+]}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="./" aria-current="page">Number generator</a>
+      <a href="dice/">Dice game</a>
+      <a href="printable-numbers/">Printable numbers</a>
+      <a href="rules/">Rules</a>
+      <a href="printables/">Printables</a>
+      <a href="secret-santa/">Secret Santa</a>
+      <a href="secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>White Elephant Number Generator</h1>
+    <p class="lead">Get a fair, random turn order for your white elephant or Yankee swap in one tap. Use a head count or real names, then reveal the numbers on the big screen.</p>
+  </section>
+
+  <section class="card" aria-labelledby="tool-title">
+    <h2 id="tool-title" class="sr-only">Generate the turn order</h2>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-count" aria-selected="true" aria-controls="pane-count">By head count</button>
+      <button type="button" role="tab" id="tab-names" aria-selected="false" aria-controls="pane-names">By names</button>
+    </div>
+    <div id="pane-count" role="tabpanel" aria-labelledby="tab-count">
+      <div class="field">
+        <label for="count">How many players?</label>
+        <input id="count" type="number" inputmode="numeric" min="2" max="500" value="12">
+      </div>
+    </div>
+    <div id="pane-names" role="tabpanel" aria-labelledby="tab-names" hidden>
+      <div class="field">
+        <label for="names">Player names <span class="hint">— one per line</span></label>
+        <textarea id="names" placeholder="Alex&#10;Jordan&#10;Sam&#10;Priya&#10;Chris"></textarea>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn big" id="go" type="button">Generate order</button>
+      <button class="btn secondary" id="reveal" type="button" hidden>Reveal on big screen</button>
+    </div>
+    <div id="result" aria-live="polite"></div>
+    <div class="actions" id="result-actions" hidden>
+      <button class="btn ghost" id="copy" type="button">Copy list</button>
+      <button class="btn ghost" id="share" type="button">Share</button>
+      <a class="btn ghost" id="print-link" href="printable-numbers/">Print number cards</a>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>How to use it at your party</h2>
+    <ol>
+      <li><strong>Count the players</strong> (or paste everyone’s names) and tap <em>Generate order</em>.</li>
+      <li><strong>Reveal the order</strong>: tap <em>Reveal on big screen</em> and show one number at a time on a TV or laptop — it builds suspense.</li>
+      <li><strong>Play</strong>: number 1 opens a gift. Each next player either opens a new gift or steals one that is already open. Need a refresher? Read the <a href="rules/">white elephant rules</a>.</li>
+      <li><strong>Want more chaos?</strong> Switch to the <a href="dice/">white elephant dice game</a>, where a roll decides whether you open, steal or swap.</li>
+    </ol>
+
+    <h2>More gift exchange tools</h2>
+    <div class="tool-grid">
+      <a href="dice/"><strong>Dice game</strong>Roll to open, steal or swap, with a round timer.</a>
+      <a href="printable-numbers/"><strong>Printable numbers</strong>Number cards to cut out and draw from a hat.</a>
+      <a href="rules/"><strong>Rules &amp; variations</strong>Classic, dice, big groups and twists.</a>
+      <a href="printables/"><strong>Free printables</strong>Dice game sheets, gift tracker and sign-up sheet.</a>
+      <a href="secret-santa/"><strong>Secret Santa generator</strong>Draw names with no email or sign-up.</a>
+      <a href="secret-santa-questionnaire/"><strong>Secret Santa questionnaire</strong>Printable or fillable gift-preference questions.</a>
+    </div>
+
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>How do you pick numbers for white elephant?</summary><p>Every player draws a number at random. Number 1 goes first, number 2 second, and so on. This generator does the draw for you, so nobody has to cut up paper — though you can still <a href="printable-numbers/">print number cards</a> if you like the hat tradition.</p></details>
+      <details><summary>Is it an advantage to be number 1?</summary><p>Usually not: number 1 opens a gift that everyone else can steal. A popular fix is to give number 1 a final turn at the very end to swap with anyone.</p></details>
+      <details><summary>What is the difference between white elephant and Yankee swap?</summary><p>They are the same game with different names. “Yankee swap” is common in New England, “Dirty Santa” in the South. The number draw works the same way for all of them.</p></details>
+      <details><summary>Can I use real names instead of numbers?</summary><p>Yes. Switch to <em>By names</em>, paste one name per line, and the order will show names next to their numbers. Duplicate names are removed automatically.</p></details>
+      <details><summary>Is my list saved or uploaded?</summary><p>Your last list is saved only in this browser so a refresh doesn’t lose it. Nothing is sent to a server, and there is no sign-up.</p></details>
+    </div>
+  </section>
+</main>
+
+<div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="Turn order reveal">
+  <div class="label" id="stage-label">Tap to reveal</div>
+  <div class="big-num" id="stage-num">?</div>
+  <div class="big-name" id="stage-name"></div>
+  <div class="stage-actions">
+    <button class="btn big" id="stage-next" type="button">Next</button>
+    <button class="btn secondary" id="stage-close" type="button">Close</button>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="./">Number generator</a> · <a href="dice/">Dice game</a> · <a href="printable-numbers/">Printable numbers</a> · <a href="rules/">Rules</a> · <a href="printables/">Printables</a> · <a href="secret-santa/">Secret Santa</a> · <a href="secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+<script src="assets/order.js"></script>
+</body>
+</html>

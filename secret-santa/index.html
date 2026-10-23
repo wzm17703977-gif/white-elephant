@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Santa Generator – No Email, No Sign-Up, With Exclusions | Gift Swap Kit</title>
+<meta name="description" content="Free Secret Santa generator with no email and no sign-up. Add names and exclusions, then send each person a private link by text or WhatsApp. Nobody draws themselves.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/secret-santa/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="Secret Santa Generator — No Email Needed">
+<meta property="og:description" content="Draw names with exclusions and send private links by text. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/secret-santa/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Secret Santa Generator (No Email)","url":"https://wzm17703977-gif.github.io/white-elephant/secret-santa/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I do Secret Santa without email?","acceptedAnswer":{"@type":"Answer","text":"Enter everyone's names, tap Draw names, and the generator gives you one private link per person. Send each link by text message, WhatsApp or any chat app. Opening the link shows only that person's match."}},
+{"@type":"Question","name":"Can I stop couples from drawing each other?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add an exclusion for each pair that should not draw each other, such as partners or roommates. The draw respects every exclusion and nobody draws themselves."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../">Number generator</a>
+      <a href="../dice/">Dice game</a>
+      <a href="../printable-numbers/">Printable numbers</a>
+      <a href="../rules/">Rules</a>
+      <a href="../printables/">Printables</a>
+      <a href="./" aria-current="page">Secret Santa</a>
+      <a href="../secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Secret Santa Generator — No Email, No Sign-Up</h1>
+    <p class="lead">Type the names, add any “can’t draw each other” pairs, and get one private link per person. Send the links by text or WhatsApp. Nobody draws themselves, and you don’t see who got whom.</p>
+  </section>
+
+  <section class="card" id="setup">
+    <h2>1. Who’s playing?</h2>
+    <div class="field">
+      <label for="names">Names <span class="hint">— one per line, at least 3</span></label>
+      <textarea id="names" placeholder="Alex&#10;Jordan&#10;Sam&#10;Priya&#10;Chris&#10;Taylor"></textarea>
+    </div>
+
+    <h2>2. Exclusions <span class="hint">(optional)</span></h2>
+    <p class="hint">Couples, roommates, or anyone who shouldn’t draw each other. Exclusions work both ways.</p>
+    <div id="excl"></div>
+    <button class="btn ghost" id="add-excl" type="button">+ Add exclusion</button>
+
+    <h2 style="margin-top:18px">3. Details <span class="hint">(optional, shown to everyone)</span></h2>
+    <div class="row">
+      <div class="field">
+        <label for="event">Event name</label>
+        <input id="event" type="text" maxlength="60" placeholder="Office holiday party">
+      </div>
+      <div class="field">
+        <label for="budget">Budget</label>
+        <input id="budget" type="text" maxlength="20" placeholder="$25">
+        <div class="quick" data-for="budget" aria-label="Pick a budget"><button type="button">$10</button><button type="button">$20</button><button type="button">$25</button><button type="button">$50</button></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="date">Exchange date</label>
+        <input id="date" type="date">
+        <div class="quick" data-for="date" id="date-quick" aria-label="Pick a date"></div>
+      </div>
+      <div class="field">
+        <label for="note">Note to everyone</label>
+        <input id="note" type="text" maxlength="140" placeholder="Wrap it! Bring it to the kitchen by noon.">
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn big" id="draw" type="button">Draw names</button>
+    </div>
+    <div id="msg" aria-live="polite"></div>
+  </section>
+
+  <section class="card" id="out" hidden>
+    <h2>4. Send each person their private link</h2>
+    <p class="notice">Send each link only to the person named next to it. Don’t open the links yourself if you’re playing — they reveal the match. Your draw is saved in this browser, so you can come back and copy links again.</p>
+    <ul class="links" id="links"></ul>
+    <div class="actions">
+      <button class="btn ghost" id="copy-all" type="button">Copy all links</button>
+      <button class="btn ghost" id="redraw" type="button">Redraw</button>
+      <button class="btn ghost" id="clear" type="button">Start over</button>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Add names.</strong> Duplicates are removed automatically.</li>
+      <li><strong>Add exclusions</strong> for people who shouldn’t draw each other.</li>
+      <li><strong>Tap Draw names.</strong> The draw happens on your device using a fair random shuffle. Nobody draws themselves and every exclusion is respected.</li>
+      <li><strong>Send the links.</strong> Tap <em>Text</em>, <em>Share</em> or <em>Copy</em> next to each name. When someone opens their link, they see only who they’re buying for, plus the budget, date and note.</li>
+    </ol>
+
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Do participants need an email or an account?</summary><p>No. Nobody signs up — not you, not them. Each person just opens a link.</p></details>
+      <details><summary>Can the organizer see who got whom?</summary><p>The pairs are never shown on screen; you only see each giver’s name and their link. The links are scrambled but not encrypted, so a determined, tech-savvy organizer could decode them. If that matters for your group, ask someone who isn’t playing to run the draw.</p></details>
+      <details><summary>Is anything stored on a server?</summary><p>No. The names and the draw stay in your browser, and the match travels inside each person’s link. There’s no database to leak.</p></details>
+      <details><summary>What if the draw is impossible?</summary><p>With too many exclusions some groups can’t be matched (for example, three people who all exclude each other). The generator tells you, and you can remove an exclusion and try again.</p></details>
+      <details><summary>How does my Secret Santa know what to buy?</summary><p>Send everyone a <a href="../secret-santa-questionnaire/">Secret Santa questionnaire</a> first — favorite colors, snacks, sizes, and what to avoid. It prints, copies into a group chat, or works as a fill-in link.</p></details>
+      <details><summary>Playing white elephant instead?</summary><p>Use the <a href="../">white elephant number generator</a> for turn order, or the <a href="../dice/">dice game</a> for a faster, sillier version.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../">Number generator</a> · <a href="../dice/">Dice game</a> · <a href="../printable-numbers/">Printable numbers</a> · <a href="../rules/">Rules</a> · <a href="../printables/">Printables</a> · <a href="./">Secret Santa</a> · <a href="../secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/santa.js"></script>
+</body>
+</html>

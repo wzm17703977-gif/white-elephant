@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Elephant Dice Game – Online Dice Roller with Rules &amp; Timer | Gift Swap Kit</title>
+<meta name="description" content="Play the white elephant dice game online. Tap to roll, see what each number means (open, steal, swap, pass), edit the rules and run a round timer. Free, no app needed.">
+<link rel="canonical" href="https://wzm17703977-gif.github.io/white-elephant/dice/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1f4d36">
+<meta property="og:title" content="White Elephant Dice Game Online">
+<meta property="og:description" content="Roll to open, steal or swap gifts. Editable dice rules and a round timer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wzm17703977-gif.github.io/white-elephant/dice/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"White Elephant Dice Game","url":"https://wzm17703977-gif.github.io/white-elephant/dice/","applicationCategory":"GameApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does the white elephant dice game work?","acceptedAnswer":{"@type":"Answer","text":"Everyone starts with a wrapped gift. Players take turns rolling one die, and the number decides the move: for example open your gift, swap with the person on your left or right, steal any gift, or pass. A timer ends the game and everyone keeps what they hold."}},
+{"@type":"Question","name":"What do the numbers mean in the white elephant dice game?","acceptedAnswer":{"@type":"Answer","text":"There is no single official version. A common set is: 1 open your gift, 2 swap left, 3 swap right, 4 steal any gift, 5 swap with someone across the room, 6 pass. You can edit every number on this page."}}
+]}
+]}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/favicon.svg" alt="" width="32" height="32"> Gift Swap Kit</a>
+    <nav class="nav" aria-label="Tools">
+      <a href="../">Number generator</a>
+      <a href="./" aria-current="page">Dice game</a>
+      <a href="../printable-numbers/">Printable numbers</a>
+      <a href="../rules/">Rules</a>
+      <a href="../printables/">Printables</a>
+      <a href="../secret-santa/">Secret Santa</a>
+      <a href="../secret-santa-questionnaire/">Questionnaire</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>White Elephant Dice Game</h1>
+    <p class="lead">Tap the die to roll. Each number tells the player what to do — open, steal, swap or pass. Edit the moves to match your house rules and set a timer for the round.</p>
+  </section>
+
+  <section class="card">
+    <div class="tabs" role="tablist" aria-label="Game mode">
+      <button type="button" role="tab" id="mode-one" aria-selected="true">One die</button>
+      <button type="button" role="tab" id="mode-two" aria-selected="false">Two dice (doubles)</button>
+    </div>
+    <div class="dice-zone">
+      <div class="dice-pair">
+        <div class="die" id="die" role="button" tabindex="0" aria-label="Roll the die">
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+        </div>
+        <div class="die" id="die2" role="button" tabindex="0" aria-label="Roll the dice" hidden>
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+        </div>
+      </div>
+      <div class="outcome" id="outcome" aria-live="polite">Tap the die to roll</div>
+      <button class="btn big" id="roll" type="button">Roll</button>
+    </div>
+  </section>
+
+  <div class="row">
+    <section class="card" id="one-rules">
+      <h2>What each number means</h2>
+      <table class="rule-table" id="rules"></table>
+      <div class="actions">
+        <button class="btn ghost" id="edit" type="button">Edit moves</button>
+        <button class="btn ghost" id="reset" type="button">Reset to default</button>
+      </div>
+      <p class="hint">Want it on paper? Print the <a href="../printables/dice-game/">dice game sheet</a>.</p>
+    </section>
+    <section class="card" id="two-rules" hidden>
+      <h2>How the doubles game works</h2>
+      <p><strong>Round 1:</strong> gifts sit in the middle. Roll doubles and take a gift from the pile; otherwise pass the dice. Keep going until every gift is taken.</p>
+      <p><strong>Round 2:</strong> start the timer. Doubles now mean steal any gift, or swap any two. When time is up, unwrap what you hold.</p>
+      <p class="hint">Print the <a href="../printables/dice-game/">doubles game sheet</a> for the table.</p>
+    </section>
+    <section class="card">
+      <h2>Round timer</h2>
+      <div class="field">
+        <label for="minutes">Minutes</label>
+        <input id="minutes" type="number" inputmode="numeric" min="1" max="120" value="10">
+      </div>
+      <div class="timer" id="timer" aria-live="off">10:00</div>
+      <div class="actions" style="justify-content:center">
+        <button class="btn" id="t-start" type="button">Start</button>
+        <button class="btn secondary" id="t-reset" type="button">Reset</button>
+      </div>
+      <p class="hint">When time runs out, everyone keeps the gift in their hands. The phone beeps (if sound is on) and vibrates.</p>
+    </section>
+  </div>
+
+  <section class="prose">
+    <h2>How to play the white elephant dice game</h2>
+    <ol>
+      <li><strong>Everyone brings one wrapped gift</strong> and holds it. Sit in a circle so “left” and “right” mean something.</li>
+      <li><strong>Pass this phone around</strong> (or put it on a TV). On your turn, tap the die and do what the number says.</li>
+      <li><strong>Start the timer</strong>. Ten minutes works well for 10–15 people; add a few minutes for bigger groups.</li>
+      <li><strong>When the timer ends</strong>, unwrap whatever you’re holding. That gift is yours.</li>
+    </ol>
+    <p>Free printable versions of both games are on the <a href="../printables/dice-game/">dice game sheet</a> page. Prefer the classic open-or-steal version? Use the <a href="../">number generator</a> for turn order and read the <a href="../rules/">full rules</a>.</p>
+
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Is there an official set of dice rules?</summary><p>No. Families and offices all play slightly different versions. The defaults here are a common, easy set; tap <em>Edit moves</em> to change any number.</p></details>
+      <details><summary>Can we play with two dice?</summary><p>Yes. Switch to <em>Two dice (doubles)</em> above. You only act when you roll doubles, which happens about once every six rolls, so the game builds suspense. Both dice are fair and rolled separately.</p></details>
+      <details><summary>Does it work offline?</summary><p>Once the page has loaded, rolling and the timer keep working without a connection. Your edited moves are saved in this browser.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Gift Swap Kit is a free, independent set of party tools. Everything runs in your browser — no accounts, no tracking, nothing uploaded.</p>
+    <p><a href="../">Number generator</a> · <a href="./">Dice game</a> · <a href="../printable-numbers/">Printable numbers</a> · <a href="../rules/">Rules</a> · <a href="../printables/">Printables</a> · <a href="../secret-santa/">Secret Santa</a> · <a href="../secret-santa-questionnaire/">Questionnaire</a></p>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/dice.js"></script>
+</body>
+</html>
